@@ -1,0 +1,36 @@
+<!--pages/register/register.wxml-->
+<form bindsubmit="formsubmit">
+  <view class="zhuce">
+    <text class="shuoming">成人函授教育系统过程管理</text>
+    <view class="form-wrap">
+      <view class="flex-wrap input-wrap">
+        <text class="label">用 户 名</text>
+        <input value="" name="uname" class="account-info-input" placeholder="请输入学号/教职工号"></input>
+      </view>
+      <view class="flex-wrap input-wrap">
+        <text class="label">手 机 号</text>
+        <input value="" name="utelephone" class="account-info-input" placeholder="请输入手机号"></input>
+      </view>
+      <view class="flex-wrap input-wrap">
+        <text class="label">我的班级</text>
+        <input value="" name="uclass" class="account-info-input" placeholder="请输入班级号"></input>
+      </view>
+      <view class="flex-wrap input-wrap">
+        <text class="label">设置密码</text>
+        <input value="" name="upwd" class="account-info-input" type="password" placeholder="请输入密码"></input>
+      </view>
+      <view class="flex-wrap input-wrap">
+        <text class="label">确认密码</text>
+        <input value="" name="upwd2" class="account-info-input" type="password" placeholder="请输入密码"></input>
+      </view>
+      <view class="position">
+        <radio-group class="radio-group" bindchange="radioChange">
+                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+        </radio-group>
+      </view>
+    </view>
+    <button class="mysubmit" type="primary" form-type="submit">注册</button>
+  </view>
+</form>

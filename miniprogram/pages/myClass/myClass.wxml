@@ -1,0 +1,30 @@
+<!--pages/myClass/myClass.wxml-->
+<view class="page-header">
+    <text class="page-header-text">班级教师</text>
+</view>
+
+<scroll-view class="page-body" scorll-y="true">
+  <block wx:for="{{teachers}}">
+    <view class="item">
+        <image class="poster" src="../../images/teacher2.png"></image>
+        <view class="meta">
+          <text class="title">教职工号：{{item.uname}}</text>
+          <text class="sub-title">手机号：{{item.utelephone}}</text>
+        </view>
+    </view>
+  </block>
+</scroll-view> 
+<view class="page-header">
+    <text class="page-header-text">班级学生</text>
+</view>
+<scroll-view class="page-body" scorll-y="true">
+  <block wx:for="{{students}}">
+    <view class="item">
+        <image class="poster" src="../../images/student2.png"></image>
+        <view class="meta">
+          <text class="title">学号：{{item.uname}}</text>
+          <text class="sub-title">手机号：{{item.utelephone}}</text>
+        </view>
+    </view>
+  </block>
+</scroll-view> 

@@ -1,0 +1,47 @@
+<scroll-view scroll-y="true" class="container">
+  <view class="blog-card">
+    <x-blog-card blog="{{blog}}" />
+  </view>
+
+  <!-- 评论点赞tab -->
+  <view class="tab">
+    <view class="tab-item">评论列表</view>
+  </view>
+
+  <!-- 评论内容列表 -->
+  <view class="comment-list">
+    <!-- 评论 -->
+    <block wx:for="{{commentList}}" wx:key="_id">
+      <view class="comment">
+        <view class="comment-title">
+          <image class="comment-portrait" src="{{item.avatarUrl}}"></image>
+          <text class="comment-nickname">{{item.uname}}</text>
+        </view>
+        <view class="comment-content">
+          {{item.content}}
+        </view>
+
+        <view class="comment-img">
+          <block wx:for="{{item.img}}" wx:key="{{index}}" wx:for-item="imgItem">
+            <image class="img" 
+            src="{{imgItem}}" mode="aspectFill" catch:tap="onPreviewImage" data-imgsrc="{{imgItem}}" data-imgs="{{item.img}}"></image>
+          </block>
+        </view>
+        
+        <view class="comment-time">{{item.createTime}}</view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<view class="blog-ctrl">
+  <x-blog-ctrl 
+  blog="{{blog}}" 
+  blogId="{{blog._id}}" 
+  iconfont="iconfont" 
+  icon-pinglun="icon-pinglun" 
+  icon-fenxiang="icon-fenxiang" 
+  icon-shanchu="icon-shanchu"
+  icon-jiahao="icon-jiahao"
+  bind:refreshCommentList="_getBlogDetail" />
+</view>

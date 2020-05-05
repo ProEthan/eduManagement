@@ -1,0 +1,35 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="header">
+    <view wx:if="{{isTeacher==true}}">
+      <view class="publish-container" bindtap="onPublish">
+        <i class="iconfont icon-fabu"></i>
+      </view>
+    </view>
+    <view class="search-container">
+      <x-search iconfont="iconfont" icon-sousuo="icon-sousuo" bind:search="onSearch"/>
+    </view>
+  </view>
+
+  <!-- blog卡片列表 -->
+  <view class="blog-list">
+    <block wx:for="{{blogList}}" wx:key="_id">
+      <view class="blog-panel">
+        <x-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment" />
+        <x-blog-ctrl 
+        blogId="{{item._id}}"
+        blog="{{item}}"
+        iconfont="iconfont"
+        icon-pinglun="icon-pinglun"
+        icon-fenxiang="icon-fenxiang"
+        icon-shanchu="icon-shanchu"
+        icon-jiahao="icon-jiahao"/>
+      </view>
+    </block>
+  </view>
+
+  <!-- 底部弹出层 -->
+  <x-login modalShow="{{modalShow}}" 
+  bind:loginsuccess="onLoginSuccess"
+  bind:loginfail="onLoginFail"></x-login>
+</view>

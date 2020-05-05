@@ -1,0 +1,19 @@
+<view class="profile-header">
+  <view class="avatar-url">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <open-data type="userNickName" class="nickname"></open-data>
+  <text class="xuehao">{{uname}}</text>
+  <text class="xuehao">我的班级:{{uclass}}</text>
+</view>
+
+<view class="nav">
+  <view class="nav-item">
+    <navigator class="content" hover-class="none" url="/pages/myClass/myClass">
+      <i class="iconfont icon-banji"></i>
+      <text class="text">我的班级</text>
+      <i class="iconfont icon-xiangyou"></i>
+    </navigator>
+  </view>
+
+</view>

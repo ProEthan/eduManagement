@@ -1,0 +1,66 @@
+/* pages/login-page/login-page.wxss */
+page{
+  background-color: #f2f2f2;
+}
+
+.denglu{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 5px 10px;
+}
+
+.shuoming{
+  display: block;
+  margin: 10px 0;
+  color: gray;
+  font-size: 14px;
+}
+
+.mysubmit{
+  width: 80%;
+  margin-top: 25px;
+}
+
+.form-wrap{
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+}
+
+.flex-wrap{
+  display: flex;
+  flex-direction: row;
+}
+
+.input-wrap{
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  margin: 0 -12px;
+  padding: 0 12px;
+  height: 46px;
+  line-height: 46px;
+}
+
+.label{
+  color: #999;
+  width: 7em;
+}
+
+.account-info-input{
+  color: black;
+  font-size: 14px;
+  line-height: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.register{
+  width: 80%;
+  margin: 0 auto;
+  color: rgb(13, 230, 49);
+  font-size: 12px;
+  text-align: right;
+}

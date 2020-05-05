@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "Login",
+  "pages": [
+    "pages/index/index"
+  ]
+}
