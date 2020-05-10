@@ -29,7 +29,7 @@
 
 .comment-content {
   width: 660rpx;
-  height: 250rpx;
+  height: 350rpx;
   text-align: left;
   padding: 20rpx;
   font-size: 30rpx;
@@ -42,8 +42,8 @@
   color: #fff;
   font-size: 24rpx;
   position: absolute;
-  right: 10rpx;
-  bottom: 10rpx;
+  right: 20rpx;
+  bottom: 20rpx;
 }
 
 .share-btn {
@@ -73,13 +73,13 @@
   flex-wrap: wrap;
   height: 300rpx;
   margin-left: 20rpx;
+  margin-bottom: 50rpx;
 }
 
 .image-wrap {
   width: 170rpx;
   height: 170rpx;
   margin-right: 10rpx;
-  margin-bottom: 10rpx;
   position: relative;
   overflow: hidden;
   text-align: center;

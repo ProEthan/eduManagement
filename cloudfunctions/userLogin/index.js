@@ -31,6 +31,18 @@ exports.main = async (event, context) => {
     ctx.body = userInfomation
   })
 
+  app.router('subscribe',async(ctx,next)=>{
+    let w={}
+    w={
+      hasSubscribe: true,
+      uclass: event.uclass,
+    }
+    let subscribedStus=await userCollection.where(w).get().then((res) =>{
+      return res.data
+    })
+    ctx.body = subscribedStus
+  })
+
   app.router('classInfo', async(ctx, next) => {
     const className = event.uclass
     let w = {}

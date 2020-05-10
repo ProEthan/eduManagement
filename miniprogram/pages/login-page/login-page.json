@@ -1,7 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "Login",
-  "pages": [
-    "pages/index/index"
-  ]
+  "usingComponents": {
+    "x-login":"/components/sub-bottom/sub-bottom"
+  },
+  "navigationBarTitleText": "Login"
 }

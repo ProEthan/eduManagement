@@ -1,0 +1,7 @@
+<!--components/bottom-modal2/bottom-modal2.wxml-->
+<view class="modal" hidden="{{!modalShow}}">
+  <view class="panel">
+    <!-- slot插槽 -->
+    <slot name="modal-content"></slot>
+  </view>
+</view>

@@ -122,7 +122,7 @@ Component({
       if (content.trim() == '') {
         wx.showModal({
           title: '评论内容不能为空',
-          content: '',
+          content: '', 
         })
         return
       }
@@ -168,6 +168,7 @@ Component({
             uname: getApp().globalData.uname,
           }
         }).then((res) => {
+  
           wx.hideLoading()
           wx.showToast({
             title: '评论成功',
@@ -180,47 +181,8 @@ Component({
           // 父元素刷新评论页面
           this.triggerEvent('refreshCommentList')
         })
+
       })
-
-
-
-
-
-      // db.collection('blog-comment').add({
-      //   data: {
-      //     content,
-      //     createTime: db.serverDate(),
-      //     blogId: this.properties.blogId,
-      //     nickName: userInfo.nickName,
-      //     avatarUrl: userInfo.avatarUrl
-      //   }
-      // }).then((res) => {
-      //   if(this.properties.blog.hasSubscribe == true){
-      //     // 推送模板消息
-      //     wx.cloud.callFunction({
-      //       name: 'sendMessage',
-      //       data: {
-      //         content,
-      //         formId,
-      //         blogId: this.properties.blogId
-      //       }
-      //     }).then((res) => {
-      //       console.log(res)
-      //     })
-      //   }
-
-      //   wx.hideLoading()
-      //   wx.showToast({
-      //     title: '评论成功',
-      //   })
-      //   this.setData({
-      //     modalShow: false,
-      //     content: '',
-      //   })
-
-      //   // 父元素刷新评论页面
-      //   this.triggerEvent('refreshCommentList')
-      // })
     },
 
   }

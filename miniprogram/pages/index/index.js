@@ -2,6 +2,7 @@
 let keyword = ''
 let uclass=''
 let uname=''
+let hasSubscribe=false
 Page({
 
   /**
@@ -29,17 +30,14 @@ Page({
           })
         } else {
           this.setData({
-            modalShow: true,
+            modalShow: true, 
           })
         }
       }
     })
   },
   onLoginSuccess(event) {
-    console.log(event.detail)
-
     const detail = event.detail
-    console.log(detail)
     wx.navigateTo({
       url: `../blog-edit/blog-edit?nickName=${detail.nickName}&avatarUrl=${detail.avatarUrl}&uclass=${uclass}&uname=${uname}`,
     })
@@ -54,9 +52,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    uclass=options.uclass
-    uname=options.uname
-    let uposition=options.uposition
+    uclass=getApp().globalData.uclass
+    uname=getApp().globalData.uname
+    let uposition=getApp().globalData.uposition
     console.log(uposition)
     if(uposition=='teacher'){
       this.setData({

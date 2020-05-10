@@ -2,6 +2,8 @@
 
 const db = wx.cloud.database()
 
+let hasSubscribe=false
+
 Page({
 
   /**
@@ -50,7 +52,6 @@ Page({
     }
     else{
       // 判断此用户名是否已经注册过
-      //
       wx.cloud.callFunction({
         name:'userLogin',
         data:{
@@ -68,6 +69,7 @@ Page({
               uclass,
               upwd,
               uposition,
+              hasSubscribe,
             }
           }).then((res) => {
             wx.showToast({

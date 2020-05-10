@@ -1,20 +1,23 @@
 <!--pages/login-page/login-page.wxml-->
-<form bindsubmit="formsubmit">
+<view>
   <view class="denglu">
     <text class="shuoming">成人函授教育系统过程管理</text>
     <view class="form-wrap">
       <view class="flex-wrap input-wrap">
         <text class="label">账 号</text>
-        <input value="" name="uname" class="account-info-input" placeholder="请输入学号/职工号"></input>
+        <input bindinput="onInputUname" class="account-info-input" placeholder="请输入学号/职工号"></input>
       </view>
       <view class="flex-wrap input-wrap">
         <text class="label">密 码</text>
-        <input value="" name="upwd" class="account-info-input" type="password" placeholder="请输入密码"></input>
+        <input bindinput="onInputUpwd" class="account-info-input" type="password" placeholder="请输入密码"></input>
       </view>
     </view>
     <view class="register">
       <navigator style="display: inline" url="../register/register">新用户注册</navigator>
     </view>
-    <button class="mysubmit" type="primary" form-type="submit">登录</button>
+    <button class="mysubmit" type="primary" bindtap="formsubmit">登录</button>
   </view>
-</form>
+
+  <!-- 底部弹出层 -->
+  <x-login modalShow="{{modalShow}}"></x-login>
+</view>

@@ -1,0 +1,6 @@
+<!--components/sub-bottom/sub-bottom.wxml-->
+<x-bottom-modal modalShow="{{modalShow}}">
+  <view slot="modal-content">
+    <button class="login" bindtap="getSubscribe">获取微信订阅消息授权</button>
+  </view>
+</x-bottom-modal> 

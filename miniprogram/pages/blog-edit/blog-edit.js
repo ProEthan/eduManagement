@@ -31,6 +31,7 @@ Page({
     uclass=options.uclass
     uname=options.uname
     userInfo = options
+    hasSubscribe=options.hasSubscribe
   },
 
   onInput(event) {
@@ -99,30 +100,12 @@ Page({
   },
 
   send() {
-    // 订阅消息授权
-    const tmplIds= [
-      "xlkCKe95W5X8cVP1mFH_SB708TKU4dH097RcvG9IhkQ"
-    ]
-    wx.requestSubscribeMessage({
-      tmplIds:tmplIds,
-      success:(res) => {
-        hasSubscribe=true
-        if(res[tmplIds] === 'accept'){
-          //可以使⽤原⼦⾃增指令inc往数据库⾥某个记录授权次数的字段+1
-          hasSubscribe=true
-        }
-      },
-      fail:(res) => {
-        console.log("订阅消息API调⽤失败：",res)
-      },
-      complete:(res)=>{
-        this.func()
-      }
-    })
+
+    this.func()
+
   },
 
   func(){
-    console.log(hasSubscribe)
     // 1、图片 -> 云存储 fileID 云文件ID
     // 2、数据 -> 云数据库
     // 数据库：内容、图片fileID、openid、昵称、头像、时间
@@ -177,6 +160,29 @@ Page({
           hasSubscribe,
         }
       }).then((res) => {
+        // 消息推送同意订阅的学生微信上
+        wx.cloud.callFunction({
+          name:'userLogin',
+          data:{
+            uclass,
+            $url:'subscribe',
+          }
+        }).then((res)=>{
+          let subscribedStus=res.result
+          let subedNum=subscribedStus.length
+          for(let i=0;i<subedNum;i++){
+            let _openid=subscribedStus[i]._openid
+            wx.cloud.callFunction({
+              name: 'sendMessage',
+              data: {
+                _openid,
+                content,
+              }
+            }).then((res) => {
+              console.log(res)
+            })
+          }
+        })
         wx.hideLoading()
         wx.showToast({
           title: '发布成功',

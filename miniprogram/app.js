@@ -20,6 +20,7 @@ App({
       utelephone:'',
       uclass:'',
       uposition:'',
+      hasSubscribe:false,
     }
   }
 })

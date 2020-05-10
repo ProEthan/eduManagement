@@ -7,13 +7,28 @@ Page({
   data: {
     uname:'',
     upwd:'',
+    // 控制底部弹出层是否显示
+    modalShow: false,
+  },
+
+  onInputUname(e){
+    //
+    this.setData({
+      uname:e.detail.value
+    })
+  },
+  onInputUpwd(e){
+    //
+    this.setData({
+      upwd:e.detail.value
+    })
   },
 
   // 点击登录按钮触发的事件函数
   formsubmit(e){
 
-    let inputname=e.detail.value.uname
-    let inputpwd=e.detail.value.upwd
+    let inputname=this.data.uname
+    let inputpwd=this.data.upwd
 
     if(inputname==''){
       wx.showModal({
@@ -51,16 +66,23 @@ Page({
           let userInfo_class=res.result[0].uclass
           let userInfo_position=res.result[0].uposition
           let userInfo_pwd=res.result[0].upwd
+          let userInfo_hasSub=res.result[0].hasSubscribe
+          // 如果密码正确
           if(inputpwd==userInfo_pwd){
-            //
-            console.log('登录成功')
             getApp().globalData.uname=userInfo_name
             getApp().globalData.uposition=userInfo_position
             getApp().globalData.uclass=userInfo_class
             getApp().globalData.utelephone=userInfo_telephone
-            wx.reLaunch({
-              url: `../index/index?uname=${userInfo_name}&uposition=${userInfo_position}&uclass=${userInfo_class}&utelephone=${userInfo_telephone}`,
-            })
+            if(userInfo_position=='student'){
+              this.setData({
+                modalShow: true,
+              })
+            }
+            else{
+              wx.reLaunch({
+                url: `../index/index`,
+              })
+            }
           }
           else{
             wx.showModal({
